@@ -1,0 +1,21 @@
+{% load static %}
+<html lang="ru" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ item.name }}</title>
+
+</head>
+<body>
+<ul class="breadcrumb">
+    <li><a href="/">Главная</a></li>
+    <li><a href="{% url 'items-list' %}">Список товаров</a></li>
+    <li>{{ item.name }}</li>
+</ul>
+
+    <h2>Наименование товара: {{ item.name }} (ID:{{ item.id }})</h2>
+    <h3>Брэнд: {{ item.brand }}</h3>
+    <h3>Количество: {{ item.count | default:"Данного товара нет в наличии" }}</h3>
+
+<a href="/items">Вернуться к списку</a>
+</body>
+</html>
